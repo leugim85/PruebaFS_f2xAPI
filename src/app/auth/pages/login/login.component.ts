@@ -4,6 +4,7 @@ import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { catchError, of, tap } from 'rxjs';
+import { Token } from '../../models/token';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,7 @@ import { catchError, of, tap } from 'rxjs';
 })
 export class LoginComponent {
   user: User = { userName: '', password: '' };
-  token!: string;
+  token!: Token;
   showSpinner = false;
 
   constructor(
@@ -28,7 +29,7 @@ export class LoginComponent {
       .pipe(
         tap((resp) => {
           this.token = resp;
-          sessionStorage.setItem('token', resp);
+          sessionStorage.setItem('token', this.token.token);
           if (this.token) {
             this.router.navigate(['/vehicles-reporter', 'report']);
           } else {
