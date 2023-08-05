@@ -1,0 +1,11 @@
+button {
+    width: 200px;
+    margin-left: 10px;
+}
+
+mat-spinner{
+    width: 600px;
+    height: 600px;
+    margin: 40%;
+    margin-top: 20%;
+}

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-vehicle-counter-manager',
@@ -7,4 +8,10 @@ import { Component } from '@angular/core';
 })
 export class VehicleCounterManagerComponent {
 
+  constructor(private router: Router) {}
+
+  logout() {
+    sessionStorage.clear();
+    this.router.navigate(['/auth', 'login'])
+  }
 }

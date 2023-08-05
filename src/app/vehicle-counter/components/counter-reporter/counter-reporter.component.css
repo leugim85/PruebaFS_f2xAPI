@@ -1,0 +1,16 @@
+td {
+    margin: 10px;
+    width: 140px;
+    padding: 10px;
+    text-align: center;
+    border:1px solid rgb(123, 121, 121);
+}
+th {
+    border:1px solid rgb(123, 121, 121);
+}
+
+table {
+    border:1px solid rgb(73, 72, 72);
+    margin-left: 25px;
+    margin-top: 10px;
+}
