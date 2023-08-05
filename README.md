@@ -1,27 +1,28 @@
 # F2xFullstackWebApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.0.
+Este proyecto ha sido desarrollado en Angular 16, utilizando herramientas como CLI, reactividad, implementacion de librerias como ngx toastr para mejorar la experiencia de usuario, como tambien el uso de framewok de estilos como Angular Material.
 
-## Development server
+## Servidor de desarrollo 
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Para ejecución en entorno local se debe ejecutar el comando `ng serve`. Navegando a `http://localhost:4200/`.la aplicación se re-direcciona a la pagina de login.
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Comportamiento de la aplicación
 
-## Build
+Mediante el ingreso de las credenciales se solicitara el token de autorización al servicio expuesto para la prueba por parte de F2x, con las credenciales  proporcionadas en la descripción de la prueba podra acceder a la pagina en la cual se consulta el reporte solicitado, dicha ruta ha sido protegida por medio de un Guard que solo permitira la activacion de la ruta si se recibe un token que se almacena en el session storage permitiendo acceder a este para diferentes fines de la administracion de la app.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Tener en cuenta que para poder consultar el reporte el servidor de backend debe estar activo.
 
-## Running unit tests
+## Consumo API
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Para el desarrollo de la funcionalidad requerida se consume un endpoint que puede o no recibir un filtro tipo `string` que habilitara el filtrado de aquellas estaciones que contengan la cadena de caracteres enviado.
 
-## Running end-to-end tests
+## Arquitectura de la webapp
+Se ha implementado una arquitectura por modulos, los cuales son: Autenticación, Estilos (Material), Modulo compartido y el modulo de Reportes.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Arquitectura de la solución
 
-## Further help
+En el presente repositorio se ha agregado el archivo `Diagrama arquitectura.pdf`, en el cual se muestra graficamente el diseño de la solución planteada.
+La solucion cuaenta con una aplicacion Web, cuyo codigo fuente se encuentra en este repositorio y un API desarrollada en .Net, esta APi cuenta con un Timer Worker, los detalles de dicha implementación los podra encontrar en el README.md del respectivo repositorio.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
