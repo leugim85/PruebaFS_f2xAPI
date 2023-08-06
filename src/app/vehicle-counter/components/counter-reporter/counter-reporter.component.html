@@ -19,13 +19,13 @@
         <tbody class="table-group-divider">
             <tr>
                 <th scope="col"></th>
-                <th scope="col" colspan="4" *ngFor="let column of displayedColumns" class="m-3"><span>Total |
+                <th scope="col" colspan="4" *ngFor="let column of displayedColumns" class="m-3"><span>Total <strong>|</strong>
                         Valor</span>
                 </th>
             </tr>
             <tr *ngFor="let date of summaryDates">
                 <th scope="row">{{ date.date }}</th>
-                <td colspan="4" *ngFor="let item of date.totalByDate">{{ item.totalVehicles }} | {{ item.totalAmount |
+                <td colspan="4" *ngFor="let item of date.totalByDate">{{ item.totalVehicles }} <strong>|</strong> {{ item.totalAmount |
                     currency }}</td>
             </tr>
             <tr>

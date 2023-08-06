@@ -26,6 +26,8 @@ export class CounterReporterComponent implements OnInit {
   }
 
   initializeData() {
+    this.displayedColumns = [];
+    this.summaryByDates = [];
     this.reporterService.getSummaryReport(this.station).subscribe(resp => {
       if(resp.vehicleCounterSummaryList.length){
         this.dataSource = resp;
