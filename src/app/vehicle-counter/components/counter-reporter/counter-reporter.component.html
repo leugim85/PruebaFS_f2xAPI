@@ -5,10 +5,10 @@
         <input matInput [(ngModel)]="station">
     </mat-form-field>
 
-    <button mat-raised-button color="primary" (click)="initializeData()">Filtrar</button>
+    <button mat-raised-button color="primary" (click)="initializeData()" [disabled]="showSpinner">Filtrar</button>
 </div>
 
-<div *ngIf="dataSource">
+<div *ngIf="dataSource && !showSpinner">
     <table class="table table-bordered">
         <thead>
             <tr>
@@ -47,3 +47,5 @@
         </tbody>
     </table>
 </div>
+
+<mat-spinner *ngIf="showSpinner"></mat-spinner>

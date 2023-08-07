@@ -18,6 +18,7 @@ export class CounterReporterComponent implements OnInit {
   summaryDates: SummaryDates[] = [];
   station: string = '';
   showReport: boolean = false;
+  showSpinner = false;
   constructor(private reporterService: ReporterService,
               private toastr: ToastrService) {}
 
@@ -28,13 +29,16 @@ export class CounterReporterComponent implements OnInit {
   initializeData() {
     this.displayedColumns = [];
     this.summaryByDates = [];
+    this.showSpinner = true;
+    this.showMessage();
     this.reporterService.getSummaryReport(this.station).subscribe(resp => {
+      this.showSpinner = false;
       if(resp.vehicleCounterSummaryList.length){
         this.dataSource = resp;
         this.initializeColums();
         this.initializeSummaryByDates();
       } else {
-        this.showInfo()
+        this.showInfo();
       }
     });
   }
@@ -82,5 +86,9 @@ export class CounterReporterComponent implements OnInit {
 
   showInfo() {
     this.toastr.info('No se han encontrado resultados!');
+  }
+
+  showMessage() {
+    this.toastr.warning('Por favor espera mientras se ejecuta la consulta');
   }
 }

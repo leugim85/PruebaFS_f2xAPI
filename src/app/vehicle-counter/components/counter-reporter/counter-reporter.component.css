@@ -14,3 +14,10 @@ table {
     margin-left: 25px;
     margin-top: 10px;
 }
+
+mat-spinner{
+    width: 600px;
+    height: 600px;
+    margin: 40%;
+    margin-top: 5%;
+}
